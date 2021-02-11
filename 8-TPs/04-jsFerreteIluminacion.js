@@ -1,4 +1,7 @@
-/*4.	Para el departamento de iluminación:
+/*
+Mónica Beatriz Huaygua Janko
+
+4.	Para el departamento de iluminación:
 Tomando en cuenta que todas las lámparas están en oferta al mismo precio de $35 pesos final.
 A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
 B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
@@ -10,5 +13,80 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
- 	
+ let PrecioLamparita;
+ let CantidadLamparitas; 
+ let MarcaLamparita;
+ let precioTotal;
+
+ PrecioLamparita = 35;
+ CantidadLamparitas = document.getElementById("txtIdCantidad").value;
+ precioFinal = document.getElementById("txtIdprecioDescuento".value);
+ MarcaLamparita = document.getElementById("Marca").value;
+ precioTotal = PrecioLamparita * CantidadLamparitas;
+ precioFinal = precioTotal;
+
+ PrecioLamparita = parseInt(PrecioLamparita);
+ CantidadLamparitas = parseInt(CantidadLamparitas);
+ precioFinal = parseInt(precioFinal);
+ precioTotal = parseInt(precioTotal);
+
+    if( CantidadLamparitas > 5)
+    {
+        precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.5);
+    }
+    else
+    {
+        if( CantidadLamparitas == 5)
+        {
+            if(MarcaLamparita == "ArgentinaLuz")
+            {
+                precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.4);
+            }
+            else
+            {
+                precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.3);
+            }
+        }
+        
+    }
+
+    if( CantidadLamparitas == 4 )
+    {
+        if  (MarcaLamparita == "ArgentinaLuz" || MarcaLamparita == "FelipeLamparas")
+        {
+            precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.25);
+        }
+        else
+        {
+            precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.2);
+        }
+    }else
+    {
+        if( CantidadLamparitas == 3)
+        {
+            if(MarcaLamparita == "ArgentinaLuz")
+            {
+                precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.15);
+            }
+            else
+            {
+                if(MarcaLamparita == "FelipeLamparas")
+                {
+                    precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.10);
+                }
+                else
+                {
+                    precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.05);
+                }
+            }
+        }
+    }
+
+    document.getElementById("txtIdprecioDescuento").value = precioFinal;  
+
+    if(precioFinal > 120)
+    {
+        ingresosBrutos = precioFinal * 0.1;
+        alert("IIBB Usted pago " + ingresosBrutos);
+    }
 }

@@ -1,6 +1,24 @@
+/*
+Mónica Beatriz Huaygua Janko
+
+IF Ejercicio 3
+Al ingresar una edad debemos informar si la persona es mayor de edad, sino informar que es un menor de edad.
+ */
+
 function mostrar()
 {
-	//tomo la edad  
-	alert("ok");
-
-}//FIN DE LA FUNCIÓN
+	let edad;
+	
+	edad = document.getElementById("txtIdEdad").value;
+	edad = parseInt(edad)
+	
+	if (edad >= 18){
+			
+		alert("Usted es mayor de edad");
+	} 
+	else
+	{
+        alert("Usted es menor de edad")
+	}
+	
+}
