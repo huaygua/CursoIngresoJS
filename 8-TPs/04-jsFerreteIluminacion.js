@@ -32,7 +32,7 @@ function CalcularPrecio ()
 
     if( CantidadLamparitas > 5)
     {
-        precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.5);
+        precioFinal = precioTotal - (precioTotal * 0.5);
     }
     else
     {
@@ -40,46 +40,48 @@ function CalcularPrecio ()
         {
             if(MarcaLamparita == "ArgentinaLuz")
             {
-                precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.4);
+                precioFinal = precioTotal - (precioTotal * 0.4);
             }
             else
             {
-                precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.3);
+                precioFinal = precioTotal - (precioTotal * 0.3);
             }
-        }
-        
-    }
-
-    if( CantidadLamparitas == 4 )
-    {
-        if  (MarcaLamparita == "ArgentinaLuz" || MarcaLamparita == "FelipeLamparas")
-        {
-            precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.25);
         }
         else
         {
-            precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.2);
-        }
-    }else
-    {
-        if( CantidadLamparitas == 3)
-        {
-            if(MarcaLamparita == "ArgentinaLuz")
+            if( CantidadLamparitas == 4 )
             {
-                precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.15);
-            }
-            else
-            {
-                if(MarcaLamparita == "FelipeLamparas")
+                if  (MarcaLamparita == "ArgentinaLuz" || MarcaLamparita == "FelipeLamparas")
                 {
-                    precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.10);
+                    precioFinal = precioTotal - (precioTotal * 0.25);
                 }
                 else
                 {
-                    precioFinal = precioTotal - (PrecioLamparita * CantidadLamparitas * 0.05);
+                    precioFinal = precioTotal - (precioTotal * 0.2);
+                }
+            }else
+            {
+                if( CantidadLamparitas == 3)
+                {
+                    if(MarcaLamparita == "ArgentinaLuz")
+                    {
+                        precioFinal = precioTotal - (precioTotal * 0.15);
+                    }
+                    else
+                    {
+                        if(MarcaLamparita == "FelipeLamparas")
+                        {
+                            precioFinal = precioTotal - (precioTotal * 0.10);
+                        }
+                        else
+                        {
+                            precioFinal = precioTotal - (precioTotal * 0.05);
+                        }
+                    }
                 }
             }
         }
+        
     }
 
     document.getElementById("txtIdprecioDescuento").value = precioFinal;  
@@ -88,5 +90,7 @@ function CalcularPrecio ()
     {
         ingresosBrutos = precioFinal * 0.1;
         alert("IIBB Usted pago " + ingresosBrutos);
+        precioMasIIBB = ingresosBrutos + precioFinal;
+        document.getElementById("txtIdprecioDescuento").value = precioMasIIBB;  
     }
 }
